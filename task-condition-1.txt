@@ -58,3 +58,8 @@
   const str2 = "знать";
   console.log(str.endsWith(str1)) //false
   console.log(str.endsWith(str2)) //true
+  
+  
+Задача 10
+  Создать функцию multiplicationTable(row,col) которая будет строить матрицу
+  (Код должен быть в одну строку)
