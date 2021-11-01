@@ -107,10 +107,7 @@ console.log(str.endsWith(str2))
   }
 
   //variant 1
-  function multiplicationTable(row,col){
-    return [...Array(row)].map((el, i) =>[...Array(col)].map((el, j) => (i + 1) * (j + 1))
-    );
-  }
+  const multiplicationTable = (row, col) => [...Array(row)].map((el, i) =>[...Array(col)].map((el, j) => (i + 1) * (j + 1)))
 
   console.log(multiplicationTable(2,3));
   console.table(multiplicationTable(9,9));
