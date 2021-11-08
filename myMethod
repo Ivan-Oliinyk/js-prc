@@ -1,0 +1,79 @@
+*************** ARRAY METHOD ***********************
+
+1) *** reduce() ***
+
+  Array.prototype.myReduce = function (cb, init = this[0]) {
+    let res = init
+
+    for (let i = 0; i < this.length; i += 1) {
+      res = cb.call(null, res, this[i], i, this)
+    }
+
+    return res
+  }
+
+
+2) *** every() ***
+  Array.prototype.myEvery = function(cb, thisArgs) {
+    for (let i = 0; i < this.length; i += 1) {
+      if(!cb.call(thisArgs || null, this[i], i, this)) {
+        return false
+      }
+    }
+
+    return true
+  }
+  
+
+3) *** filter() ****
+  Array.prototype.myFilter = function (cb, thisArgs) {
+    let res = []
+
+    for (let i = 0; i < this.length; i += 1) {
+      if (cb.call(thisArgs || null, this[i], i, this)) {
+        res.push(this[i])
+      }
+    }
+
+    return res
+  }
+
+
+4) *** map() ***
+  Array.prototype.myMap = function (cb, thisArgs) {
+    let res = []
+
+    for (let i = 0; i < this.length; i += 1) {
+      res.push(cb.call(thisArgs || null, this[i], i, this))
+    }
+
+    return res
+  }
+  
+5) *** flat() ***
+
+  Array.prototype.myFlat = function (n = 1) {
+    let res = [];
+
+    function flatArr(arr, n) {
+        arr.forEach(item => {
+            if (Array.isArray(item) && n !== 0) {
+                flatArr(item, n - 1)
+            } else {
+                res.push(item)
+            }
+        })
+    }
+
+    flatArr(this, n)
+
+    return res;
+  }
+  
+6)
+  
+  
+  
+  
+  
+  
