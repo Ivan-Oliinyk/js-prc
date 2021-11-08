@@ -1,0 +1,77 @@
+1) *** charAt() ***
+
+  String.prototype.charAt1 = function(idx) {
+    return this[idx]
+  }
+  
+
+2) *** concat() ***
+
+  String.prototype.concat1 = function (...args) {
+    let res = this
+
+    for(let i = 0; i < args.length; i += 1) {
+      res += args[i]
+    }
+    return res
+
+    // return args.reduce((sum, el) => sum + el , this)
+  }
+  
+3) *** includes() ***
+
+// String.prototype.includes1 = function (str, pos = 0) {
+//     version-1
+//   if (typeof pos !== 'number') {
+//     pos = 0
+//   }
+  
+//   return pos + this.length > this.length 
+//     ? false 
+//     : this.indexOf(str) >= 0 
+//       ? true
+//       : false
+
+  //   version-2
+  // if (pos + str.length > this.length) {
+  //   return false
+  // }
+
+  // if (typeof pos !== 'number') {
+  //   pos = 0
+  // }
+
+  // return this.indexOf(str) >= 0
+
+  //   version-3
+  // let tempThis = ''
+  // let tempStr = ''
+
+  // if (typeof pos !== 'number') {
+  //   pos = 0
+  // }
+
+  // for (let idx = pos; idx<this.length; idx++) {
+
+  //   for (let x=0; x<str.length; x++) {
+  //     tempStr += str[x]
+  //     tempThis += this[idx+x]
+  //   }
+
+  //   if (tempStr === tempThis) { 
+  //     return true 
+  //   }
+
+  //   tempThis = ''
+  //   tempStr = ''
+  // }
+
+  // return false
+
+      // version-4
+//   if (typeof pos !== 'number') {
+//     pos = 0
+//   }
+
+
+4) 
