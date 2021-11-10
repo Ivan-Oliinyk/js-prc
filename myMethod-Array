@@ -70,6 +70,7 @@
     return res;
   }
   
+  
 6) *** reverse() ***
 
 Array.prototype.reverse1 = function() {
@@ -83,7 +84,56 @@ Array.prototype.reverse1 = function() {
 
   return this.map((el, i, arr) => arr[(this.length - 1) - i])
 }
+
+
+7) 
+
+  Array.prototype.mySortBuble = function (cb) {
+
+      for (let index = 0; index < this.length; index++) {
+          for (let jex = 0; jex < this.length; jex++) {
+              if (cb && cb.call(null, this[index], this[jex] !== undefined ? this[jex] : this[index]) < 0 || String(this[index]) < String(this[jex])){
+                  [this[index], this[jex]] = [this[jex], this[index]]
+              }
+          }
+      }
+      return this;
+  };
+
+
+ 8) *** sort () *** 
+    числа и объекты
+   Array.prototype.mySort = function (cb) {
+    function swap (arr, a, b) {
+      [arr[a], arr[b]] = [arr[b], arr[a]];
+    }
+
+    for (let i = 0; i <= this.length - 1; i+=1) {
+      if (cb.call(null, this[i], this[i + 1] !== undefined ? this[i + 1] : this[i]) > 0) {
+        swap(this, i, i + 1);
+        i = -1;
+      }
+    }
+
+    return this;
+  };
   
+  строки
+Array.prototype.mySort = function (cb) { 
+    function swap(arr, a, b) {
+      [arr[a], arr[b]] = [arr[b], arr[a]];
+    }
+
+    for (let i = 0; i < this.length - 1; i += 1) {
+        // console.log(${this[i]} ${this[i + 1]});
+        if (String(this[i]) > String(this[i + 1])) {
+            swap(this, i, i + 1);
+            i = - 1;
+        }
+    }
+    return this;
+};
+ 
   
   
   
