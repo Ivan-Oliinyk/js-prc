@@ -74,4 +74,26 @@
 //   }
 
 
-4) 
+4) *** indexOf() ****
+  String.prototype.myIndexOf = function (str) {
+      if (typeof str !== 'string') {
+          return false;
+      }
+
+      let revStr = str.split('').reverse().join('')
+      return this.split("").reverse().reduce((prev, item, i, arr) => {
+          if (arr.slice(i, i + str.length).join('') === revStr) {
+              return arr.length - 1 - i
+          }
+          return prev
+      }, -1)
+  }
+
+  String.prototype.myIndexOf = function (str, num = 0) {
+      for (let i = num; i < this.length; i++) {
+          if (this.slice(i, str.length + i) === str) {
+              return i
+          }
+      }
+      return -1
+  }
